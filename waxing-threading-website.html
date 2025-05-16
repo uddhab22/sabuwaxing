@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABU Waxing & Threading</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: #182e45;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        a {
+            color: #182e45;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #12202f;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #182e45;
+        }
+        
+        .logo span {
+            color: #2c3e50;
+            font-weight: 300;
+        }
+        
+        /* Navigation Menu */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #2c3e50;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #182e45;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 60px;
+        }
+        
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #182e45;
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #12202f;
+            color: #fff;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .services h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            color: #182e45;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 30px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            margin-bottom: 60px;
+        }
+        
+        .testimonials h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: #f0f0f0;
+            font-family: serif;
+            z-index: 0;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #e67e22;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .contact h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #182e45;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-form form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #182e45;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .footer-logo span {
+            color: #182e45;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+        
+        .social-links {
+            display: flex;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #182e45;
+        }
+        
+        .social-links a i {
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #bdc3c7;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: #182e45;
+        }
+        
+        .footer-newsletter p {
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-form button {
+            padding: 0 20px;
+            border: none;
+            background-color: #182e45;
+            color: #fff;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #12202f;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Booking Section */
+        .booking {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .booking h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .booking h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .booking-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .booking-group {
+            margin-bottom: 20px;
+        }
+        
+        .booking-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .booking-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .pricing h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .pricing-tables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-table {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pricing-table:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-header {
+            background-color: #182e45;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .pricing-header h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .pricing-body {
+            padding: 30px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-btn {
+            display: block;
+            text-align: center;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+        }
+        
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .gallery h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(24, 46, 69, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: #fff;
+            font-size: 2rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 10px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                display: none;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 10px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .booking-grid,
+            .contact-form form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width,
+            .booking-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .services-grid,
+            .testimonials-grid,
+            .pricing-tables {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>SABU<span> Waxing & Threading</span></h1>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="https://sabu037a.setmore.com/sabu" class="btn">Book Now</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Expert Waxing & Threading Services</h1>
+                <p>Discover the perfect blend of artistry and care for your beauty needs. Our skilled technicians provide exceptional services that will leave you feeling confident and radiant.</p>
+                <a href="https://sabu037a.setmore.com/sabu" class="btn">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Eyebrow Threading</h3>
+                        <p>Our eyebrow threading service beautifully shapes and defines your brows, creating the perfect frame for your face.</p>
+                        <span class="price">$15</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Full Face Threading</h3>
+                        <p>Complete facial threading includes eyebrows, upper lip, chin, forehead, and sides of the face for a smooth, hair-free appearance.</p>
+                        <span class="price">$45</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Leg Waxing</h3>
+                        <p>Our expert leg waxing leaves your skin silky smooth for weeks. Choose between half or full leg options.</p>
+                        <span class="price">From $30</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Brazilian Wax</h3>
+                        <p>Our gentle Brazilian waxing technique removes all hair from the bikini area, leaving you feeling confident and comfortable.</p>
+                        <span class="price">$60</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Back & Chest Waxing</h3>
+                        <p>Professional waxing services for men that leave skin smooth and hair-free for weeks.</p>
+                        <span class="price">From $40</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Facial Waxing</h3>
+                        <p>Precise facial waxing for upper lip, chin, and sideburns using gentle wax suitable for sensitive skin.</p>
+                        <span class="price">From $12</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About SABU Waxing & Threading</h2>
+                    <p>Welcome to SABU Waxing & Threading, where beauty meets expertise. Our salon has been dedicated to providing exceptional waxing and threading services to our valued clients.</p>
+                    <p>Our team of highly trained technicians combines traditional techniques with modern approaches to deliver results that enhance your natural beauty. We believe in personalized care, which is why we take the time to understand your specific needs and preferences.</p>
+                    <p>At SABU Waxing & Threading, we use only premium quality products that are gentle on your skin while delivering effective results. Our salon maintains the highest standards of hygiene and cleanliness, ensuring a safe and comfortable experience for every client.</p>
+                    <p>Whether you're looking for precise eyebrow shaping, smooth skin through waxing, or any of our other beauty services, we're committed to exceeding your expectations with every visit.</p>
+                </div>
+                <div class="about-img">
+                    <img src="/api/placeholder/600/400" alt="Radiant Threads Salon Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Our Pricing</h2>
+            <div class="pricing-tables">
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h3>Threading Services</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>Eyebrows - $15</li>
+                            <li>Upper Lip - $8</li>
+                            <li>Chin - $10</li>
+                            <li>Forehead - $12</li>
+                            <li>Sides of Face - $15</li>
+                            <li>Neck - $12</li>
+                            <li>Full Face - $45</li>
+                        </ul>
+                        <a href="https://sabu037a.setmore.com/sabu" class="btn pricing-btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h3>Facial Waxing</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>Eyebrows - $18</li>
+                            <li>Upper Lip - $10</li>
+                            <li>Chin - $12</li>
+                            <li>Sides of Face - $18</li>
+                            <li>Full Face - $50</li>
+                            <li>Nose (inside) - $15</li>
+                            <li>Ears - $15</li>
+                        </ul>
+                        <a href="#booking" class="btn pricing-btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h3>Body Waxing</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>Half Arms - $30</li>
+                            <li>Full Arms - $45</li>
+                            <li>Under Arms - $20</li>
+                            <li>Half Legs - $35</li>
+                            <li>Full Legs - $60</li>
+                            <li>Basic Bikini - $35</li>
+                            <li>Brazilian - $60</li>
+                        </ul>
+                        <a href="#booking" class="btn pricing-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>3916 Lansing CT<br>Dumfries, VA 22026</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone Number</h3>
+                            <p>(571) 699-5734</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Address</h3>
+                            <p>trysabuwaxing@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Friday: 11AM - 7PM<br>
+                            Saturday - Sunday: 11AM - 6PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="map-container" style="margin-top: 20px;">
+                            <img src="/api/placeholder/600/300" alt="Google Map of SABU Waxing & Threading location" style="width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <p style="margin-top: 10px; font-size: 0.9rem;">
+                                <a href="https://www.google.com/maps/place/3916+Lansing+Ct,+Dumfries,+VA+22026" target="_blank" style="display: inline-flex; align-items: center;">
+                                    <i class="fas fa-directions" style="margin-right: 5px;"></i> Get Directions
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section></h3>
+                            <p>Monday - Friday: 9AM - 8PM<br>
+                            Saturday: 10AM - 6PM<br>
+                            Sunday: 11AM - 5PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h3>Radiant<span>Threads</span></h3>
+                    </div>
+                    <p>Radiant Threads is a premier waxing and threading salon dedicated to helping you look and feel your best. Our experienced technicians provide exceptional services using only the highest quality products.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Eyebrow Threading</a></li>
+                        <li><a href="#">Full Face Threading</a></li>
+                        <li><a href="#">Facial Waxing</a></li>
+                        <li><a href="#">Body Waxing</a></li>
+                        <li><a href="#">Brazilian Waxing</a></li>
+                        <li><a href="#">Men's Waxing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for special offers and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Radiant Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                nav.classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Change Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = '#fff';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = '#fff';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Form Submission (You would replace this with your actual form handling logic)
+        const bookingForm = document.querySelector('.booking-form form');
+        const contactForm = document.querySelector('.contact-form form');
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for booking with us! We will confirm your appointment shortly.');
+                this.reset();
+            });
+        }
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
